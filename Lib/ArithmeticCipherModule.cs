@@ -27,7 +27,7 @@ public class ArithmeticCipherModule : CipherModuleBase
         _pages[0][0] = encoded;
         var freqStr = freq.Select(i => (char) ('A' + i - 1)).JoinString();
         for (var i = 0; i < 5; i++)
-            _pages[(i + 1) / 3][(i + 1) % 3] = i == 4 ? freqStr.Substring(6 * i) + " " + freq.Sum() : freqStr.Substring(6 * i, 6);
+            _pages[(i + 1) / 3][(i + 1) % 3] = i == 4 ? $"{freqStr.Substring(6 * i)} {freq.Sum()}" : freqStr.Substring(6 * i, 6);
 
         Debug.Log($"[Arithmetic Cipher #{_moduleId}] Encoded word: {encoded}");
         Debug.Log($"[Arithmetic Cipher #{_moduleId}] Letters on module: {freqStr}");
